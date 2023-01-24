@@ -1,3 +1,13 @@
 <% if @calculated_payslip.present? %>
-  <p> TDS: <%= @calculated_payslip['tds'] %></p>
+  <div>
+    <p> Gross Pay: <%= @calculated_payslip['gross_pay'] %></p>
+    <p> PF: <%= @calculated_payslip['pf_amount'] %></p>
+    <p> TDS: <%= @calculated_payslip['tds'] %></p>
+    <p> Health Contribution: <%= @calculated_payslip['health_contribution'] %></p>
+    <p> GIS: <%= @calculated_payslip['gis'] %></p>
+    <p> Laptop Loan Repayment: <%= @calculated_payslip['laptop_loan_repayment'] %></p>
+    <p> Advance Reimbursement: <%= @calculated_payslip['advance_repayment'] %></p>
+    <p> Other Deductibles: <%= @calculated_payslip['other_deductables'] %></p>
+    <p> Net Pay: <%= @calculated_payslip['net_pay'] %></p>
+  </div>
 <% end %>

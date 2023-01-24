@@ -7,22 +7,33 @@
 
   <div>
     <%= form.label :pf_in_percentage, style: "display: block" %>
-    <%= form.number_field :pf_in_percentage, step: 1 %>
+    <%= form.number_field :pf_in_percentage, step: 1, value: 10 %>
   </div>
 
   <div>
     <%= form.label :laptop_loan_amount_per_month, style: "display: block" %>
-    <%= form.number_field :laptop_loan_amount_per_month, step: 1 %>
+    <%= form.number_field :laptop_loan_amount_per_month, step: 1, value: 0 %>
   </div>
 
   <div>
     <%= form.label :advance_repayment, style: "display: block" %>
-    <%= form.number_field :advance_repayment, step: 1 %>
+    <%= form.number_field :advance_repayment, step: 1, value: 0 %>
   </div>
 
   <div>
     <%= form.label :other_deductables, style: "display: block" %>
-    <%= form.number_field :other_deductables, step: 1 %>
+    <%= form.number_field :other_deductables, step: 1, value: 0 %>
+  </div>
+
+  <div>
+    <p>
+      <%= form.radio_button :business_unit, :cpq, checked: "checked" %>
+      <%= form.label :cpq %>
+    </p>
+    <p>
+      <%= form.radio_button :business_unit, :app_lab %>
+      <%= form.label :app_lab %>
+    </p>
   </div>
 
   <div>

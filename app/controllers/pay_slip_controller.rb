@@ -11,6 +11,7 @@ class PaySlipController < ApplicationController
   def payslip_calculator
     @calculated_payslip = {
       gross_pay: ,
+      pf_amount: ,
       tds: ,
       health_contribution: ,
       gis: ,

@@ -13,7 +13,7 @@ module PaySlipHelper
     }.with_indifferent_access
 
     def net_pay
-      @net_pay ||= gross_pay - tds - health_contribution - gis - laptop_loan_repayment - advance_repayment - other_deductables
+      @net_pay ||= gross_pay - pf_amount - tds - health_contribution - gis - laptop_loan_repayment - advance_repayment - other_deductables
     end
 
     def tds
@@ -37,14 +37,14 @@ module PaySlipHelper
     end
 
     def gis
-      params[:business_unit] == 'applab' ? 200 : 300
+      params[:business_unit] == 'app_lab' ? 200 : 300
     end
 
     def calculate_tds(tax_bracket = 0, total = 0)
       return total if tax_bracket > 4
 
       total += if (taxable_amount - TAX_BRACKET[tax_bracket + 1]).positive?
-                 (TAX_BRACKET[tax_bracket] - TAX_BRACKET[tax_bracket + 1]) * TAX_PERCENTAGE[tax_bracket.to_s]
+                 (TAX_BRACKET[tax_bracket + 1] - TAX_BRACKET[tax_bracket]) * TAX_PERCENTAGE[tax_bracket.to_s]
                elsif (taxable_amount - TAX_BRACKET[tax_bracket]).positive?
                  (taxable_amount % TAX_BRACKET[tax_bracket]) * TAX_PERCENTAGE[tax_bracket.to_s]
                else

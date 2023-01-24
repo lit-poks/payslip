@@ -29,12 +29,17 @@
     <div class="radio-box">
       <div>
         <%= form.radio_button :business_unit, :cpq, checked: "checked" %>
-        <%= form.label :cpq %>
+        <%= form.label :joined_on_or_before_june_2022 %>
       </div>
       <div>
         <%= form.radio_button :business_unit, :app_lab %>
-        <%= form.label :app_lab %>
+        <%= form.label :joined_after_june_2022 %>
       </div>
+    </div>
+
+    <div class="checkbox">
+      <%= form.check_box :on_probation %>
+      <%= form.label :pet_dog, "On Probation" %>
     </div>
 
 

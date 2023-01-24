@@ -76,3 +76,9 @@ input[type="radio"] {
 p {
     margin-bottom: 5px;
 }
+
+.checkbox {
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}

@@ -3,14 +3,14 @@ module PaySlipHelper
 
   included do
 
-    TAX_BRACKET = [300000, 400000, 650000, 1000000, 1500000, 10000000000]
+    TAX_BRACKET = [300000, 400000, 650000, 1000000, 1500000, 10000000000].freeze
     TAX_PERCENTAGE = {
       '0': 0.1,
       '1': 0.15,
       '2': 0.2,
       '3': 0.25,
       '4': 0.3,
-    }.with_indifferent_access
+    }.with_indifferent_access.freeze
 
     def net_pay
       @net_pay ||= gross_pay - pf_amount - tds - health_contribution - gis - laptop_loan_repayment - advance_repayment - other_deductables
@@ -37,6 +37,8 @@ module PaySlipHelper
     end
 
     def gis
+      return 0 unless params[:on_probation].to_f.zero?
+
       params[:business_unit] == 'app_lab' ? 200 : 300
     end
 

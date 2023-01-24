@@ -1,0 +1,31 @@
+
+<%= form_with url: 'payslip', method: :post do |form| %>
+  <div>
+    <%= form.label :base_pay, style: "display: block" %>
+    <%= form.number_field :base_pay, step: 500 %>
+  </div>
+
+  <div>
+    <%= form.label :pf_in_percentage, style: "display: block" %>
+    <%= form.number_field :pf_in_percentage, step: 1 %>
+  </div>
+
+  <div>
+    <%= form.label :laptop_loan_amount_per_month, style: "display: block" %>
+    <%= form.number_field :laptop_loan_amount_per_month, step: 1 %>
+  </div>
+
+  <div>
+    <%= form.label :advance_repayment, style: "display: block" %>
+    <%= form.number_field :advance_repayment, step: 1 %>
+  </div>
+
+  <div>
+    <%= form.label :other_deductables, style: "display: block" %>
+    <%= form.number_field :other_deductables, step: 1 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

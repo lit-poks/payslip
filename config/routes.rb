@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  root "pay_slip#new"
+
+  post '/payslip', to: 'pay_slip#payslip_calculator'
+  get '/generated_payslip', to: 'pay_slip#generated_payslip'
 end

@@ -1,42 +1,44 @@
+<div class="form-container">
+  <%= form_with url: 'payslip', class: "form-content", method: :post do |form| %>
 
-<%= form_with url: 'payslip', method: :post do |form| %>
-  <div>
-    <%= form.label :base_pay, style: "display: block" %>
-    <%= form.number_field :base_pay, step: 500 %>
-  </div>
+    <div class="input-field">
+      <%= form.label :base_pay, style: "display: block" %><br/>
+      <%= form.number_field :base_pay, step: 100 %>
+    </div>
 
-  <div>
-    <%= form.label :pf_in_percentage, style: "display: block" %>
-    <%= form.number_field :pf_in_percentage, step: 1, value: 10 %>
-  </div>
+    <div class="input-field">
+      <%= form.label :pf_in_percentage %><br/>
+      <%= form.number_field :pf_in_percentage, step: 1, value: 10 %>
+    </div>
 
-  <div>
-    <%= form.label :laptop_loan_amount_per_month, style: "display: block" %>
-    <%= form.number_field :laptop_loan_amount_per_month, step: 1, value: 0 %>
-  </div>
+    <div class="input-field">
+      <%= form.label :laptop_loan_amount_per_month %> <br/>
+      <%= form.number_field :laptop_loan_amount_per_month, step: 1, value: 0 %>
+    </div>
 
-  <div>
-    <%= form.label :advance_repayment, style: "display: block" %>
-    <%= form.number_field :advance_repayment, step: 1, value: 0 %>
-  </div>
+    <div class="input-field">
+      <%= form.label :advance_repayment %><br/>
+      <%= form.number_field :advance_repayment, step: 1, value: 0 %>
+    </div>
 
-  <div>
-    <%= form.label :other_deductables, style: "display: block" %>
-    <%= form.number_field :other_deductables, step: 1, value: 0 %>
-  </div>
+    <div class="input-field">
+      <%= form.label :other_deductables %><br/>
+      <%= form.number_field :other_deductables, step: 1, value: 0 %>
+    </div>
 
-  <div>
-    <p>
-      <%= form.radio_button :business_unit, :cpq, checked: "checked" %>
-      <%= form.label :cpq %>
-    </p>
-    <p>
-      <%= form.radio_button :business_unit, :app_lab %>
-      <%= form.label :app_lab %>
-    </p>
-  </div>
+    <div class="radio-box">
+      <div>
+        <%= form.radio_button :business_unit, :cpq, checked: "checked" %>
+        <%= form.label :cpq %>
+      </div>
+      <div>
+        <%= form.radio_button :business_unit, :app_lab %>
+        <%= form.label :app_lab %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+
+    <%= form.submit "Generate", class:"submit-button"%>
+
+    </div>
+  <% end %>

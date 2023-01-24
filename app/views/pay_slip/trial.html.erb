@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Oswald', sans-serif;
+      }
+      body {
+          height: 100vh;
+          width: 100%;
+          background-image: linear-gradient(0deg, #847FC0 0%, #97D9E1 100%);
+      }
+      .heading-text {
+          text-align: center;
+          color: white;
+      }
+      .form-container,.payslip-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 24px;
+      }
+      .form-content, .payslip-content {
+          padding: 32px;
+          text-align: center;
+          flex-basis: 28%;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 16px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+      }
+      .input-field, .radio-box {
+          margin-bottom: 16px;
+      }
+      .radio-box {
+          display: flex;
+          justify-content: space-around;
+      }
+      input[type="radio"] {
+          cursor: pointer;
+      }
+      .input-field input {
+          width: 100%;
+          padding: 4px;
+          border-radius: 4px;
+          border: 1px solid #DFDFDF !important;
+          box-shadow: none !important;
+          background: #EEEAEA;
+      }
+      .submit-button {
+          width: 100%;
+          padding: 8px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: bold;
+          background: #847FC0;
+          color: white;
+          border: none;
+      }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet"></head>
+</head>
+<body>
+<h1 class="heading-text">Generate your Payslip</h1>
+<div class="form-container">
+  <form class="form-content">
+    <div class="input-field">
+      <label for="grossPay">Gross Pay:</label><br/>
+      <input type="number" id="grossPay" name="grossPay">
+    </div>
+
+    <div class="input-field">
+      <label for="pf">PF in %: </label><br/>
+      <input type="number" id="pf" name="pf">
+    </div>
+
+    <div class="input-field">
+      <label for="loan">Laptop loan amount per month: </label><br/>
+      <input type="number" id="loan" name="loan">
+    </div>
+
+    <div class="input-field">
+      <label for="advanceRepayment">Advance Repayment: </label><br/>
+      <input type="number" id="advanceRepayment" name="advanceRepayment">
+    </div>
+
+    <div class="input-field">
+      <label for="deduct">Other Deductibles: </label><br/>
+      <input type="number" id="deduct" name="deduct">
+    </div>
+
+    <div class="radio-box">
+      <div>
+        <input type="radio" id="appLab" name="radio" value="App Lab">
+        <label for="appLab">App Lab</label>
+      </div>
+
+      <div>
+        <input type="radio" id="cpq" name="radio" value="CPQ">
+        <label for="cpq">CPQ</label>
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</div>
+
+<div class="payslip-container">
+  <div class="payslip-content">
+    <p>Gross Pay : 100</p>
+    <p>PF : 100</p>
+    <p>Laptop Loan : 100</p>
+    <p>Advance Repayment : 100</p>
+    <p>Other Deductibles : 100</p>
+    <p>GIS : 100</p>
+    <p>TDS : 100</p>
+    <p>HD : 100</p>
+    <p>Net Pay : 100</p>
+  </div>
+</div>
+</body>
+</html>

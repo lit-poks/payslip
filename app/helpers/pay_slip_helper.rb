@@ -17,11 +17,11 @@ module PaySlipHelper
     end
 
     def tds
-      @tds ||= (taxable_amount < 300000 ? 0 : calculate_tds) / 12
+      @tds ||= (taxable_amount < 25001  ? 0 : calculate_tds)
     end
 
     def taxable_amount
-      @taxable_amount ||= (gross_pay - pf_amount - gis) * 12
+      @taxable_amount ||= (gross_pay - pf_amount - gis)
     end
 
     def gross_pay
@@ -52,18 +52,36 @@ module PaySlipHelper
       end
     end
 
-    def calculate_tds(tax_bracket = 0, total = 0)
-      return total if tax_bracket > 4
+    def calculate_tds(looping_amount = 25100, total = 0)
+      return calculate_high_tax if taxable_amount > 167400
+      return total if taxable_amount < looping_amount
 
-      total += if (taxable_amount - TAX_BRACKET[tax_bracket + 1]).positive?
-                 (TAX_BRACKET[tax_bracket + 1] - TAX_BRACKET[tax_bracket]) * TAX_PERCENTAGE[tax_bracket.to_s]
-               elsif (taxable_amount - TAX_BRACKET[tax_bracket]).positive?
-                 (taxable_amount % TAX_BRACKET[tax_bracket]) * TAX_PERCENTAGE[tax_bracket.to_s]
-               else
-                 0
+      total += if looping_amount <= 33300
+                 10
+               elsif looping_amount == 33400
+                 13
+               elsif looping_amount >= 33401 && looping_amount <= 54100
+                 15
+               elsif looping_amount == 54200
+                 17
+               elsif looping_amount >= 54201 && looping_amount <= 83300
+                 20
+               elsif looping_amount == 83400
+                 23
+               elsif looping_amount >= 83401 && looping_amount <= 125100
+                 25
+               elsif looping_amount >= 125101 && looping_amount <= 167400
+                 30
                end
 
-      calculate_tds(tax_bracket + 1, total)
+      calculate_tds(looping_amount + 100, total)
+    end
+
+    def calculate_high_tax
+      x = taxable_amount - 125000
+      y = x * 0.3
+      z = y + 20208
+      a = y + z
     end
 
     def health_contribution

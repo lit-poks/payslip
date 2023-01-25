@@ -69,6 +69,11 @@ input[type="radio"] {
     margin-top: 6px;
     text-align: center;
 }
+
+input:focus-visible {
+    outline: none !important;
+}
+
 .submit-button {
     width: 100%;
     padding: 8px;

@@ -4,7 +4,7 @@
   <%= form_with url: 'payslip', class: "form-content", method: :post do |form| %>
 
     <div class="input-field">
-      <%= form.label :base_pay, style: "display: block" %><br/>
+      <%= form.label :base_pay %><br/>
       <%= form.number_field :base_pay, step: 100, placeholder: 'Enter Base Pay' %>
     </div>
 

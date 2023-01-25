@@ -1,15 +1,21 @@
 <% if @calculated_payslip.present? %>
   <div class="payslip-container">
+    <h1 class="heading-text">Payslip</h1>
     <div class="payslip-content">
-      <p> Gross Pay: <%= @calculated_payslip['gross_pay'] %></p>
-      <p> PF: <%= @calculated_payslip['pf_amount'] %></p>
-      <p> TDS: <%= @calculated_payslip['tds'] %></p>
-      <p> Health Contribution: <%= @calculated_payslip['health_contribution'] %></p>
-      <p> GIS: <%= @calculated_payslip['gis'] %></p>
-      <p> Laptop Loan Repayment: <%= @calculated_payslip['laptop_loan_repayment'] %></p>
-      <p> Advance Reimbursement: <%= @calculated_payslip['advance_repayment'] %></p>
-      <p> Other Deductibles: <%= @calculated_payslip['other_deductables'] %></p>
-      <p> Net Pay: <%= @calculated_payslip['net_pay'] %></p>
+      <p class="payslip-detail"><span> Gross Pay:</span> <%= @calculated_payslip['gross_pay'].round(2) %></p>
+      <p class="payslip-detail"><span>PF:</span> <%= @calculated_payslip['pf_amount'].round(2) %></p>
+      <p class="payslip-detail"><span>TDS:</span> <%= @calculated_payslip['tds'].round(2) %></p>
+      <p class="payslip-detail">
+        <span> Health Contribution:</span> <%= @calculated_payslip['health_contribution'].round(2) %></p>
+      <p class="payslip-detail"><span> GIS:</span> <%= @calculated_payslip['gis'].round(2) %></p>
+      <p class="payslip-detail">
+        <span> Laptop Loan Repayment:</span> <%= @calculated_payslip['laptop_loan_repayment'].round(2) %></p>
+      <p class="payslip-detail">
+        <span> Advance Reimbursement:</span> <%= @calculated_payslip['advance_repayment'].round(2) %></p>
+      <p class="payslip-detail">
+        <span> Other Deductibles:</span> <%= @calculated_payslip['other_deductables'].round(2) %></p>
+      <p class="payslip-detail"><span> Net Pay:</span>&nbsp; <%= @calculated_payslip['net_pay'].round(2) %></p>
     </div>
+    <button onclick="location.href='/';" class="submit-button back-button">Back</button>
   </div>
 <% end %>

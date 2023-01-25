@@ -33,6 +33,8 @@ module PaySlipHelper
     end
 
     def pf_amount
+      return 0 unless params[:on_probation].to_f.zero?
+
       @pf_amount ||= (basic_pay * params[:pf_in_percentage].to_f) / 100
     end
 

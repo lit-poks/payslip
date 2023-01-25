@@ -24,19 +24,8 @@
     </div>
 
     <div class="input-field">
-      <%= form.label :other_deductables %><br/>
-      <%= form.number_field :other_deductables, step: 1, value: 0 %>
-    </div>
-
-    <div class="radio-box">
-      <div>
-        <%= form.radio_button :business_unit, :cpq, checked: "checked" %>
-        <%= form.label :joined_on_or_before_june_2022 %>
-      </div>
-      <div>
-        <%= form.radio_button :business_unit, :app_lab %>
-        <%= form.label :joined_after_june_2022 %>
-      </div>
+      <%= form.label :gym_repayment %><br/>
+      <%= form.number_field :gym_repayment, step: 1, value: 0 %>
     </div>
 
     <div class="checkbox">

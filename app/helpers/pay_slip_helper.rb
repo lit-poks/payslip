@@ -13,7 +13,7 @@ module PaySlipHelper
     }.with_indifferent_access.freeze
 
     def net_pay
-      @net_pay ||= gross_pay - pf_amount - tds - health_contribution - gis - laptop_loan_repayment - advance_repayment - other_deductables
+      @net_pay ||= gross_pay - pf_amount - tds - health_contribution - gis - laptop_loan_repayment - advance_repayment - gym_repayment
     end
 
     def tds
@@ -41,7 +41,15 @@ module PaySlipHelper
     def gis
       return 0 unless params[:on_probation].to_f.zero?
 
-      params[:business_unit] == 'app_lab' ? 200 : 300
+      if basic_pay >= 60000
+        500.0
+      elsif basic_pay >= 30000 && basic_pay <= 59999
+        400
+      elsif basic_pay >= 16000 && basic_pay <= 29999
+        300
+      else
+        200
+      end
     end
 
     def calculate_tds(tax_bracket = 0, total = 0)
@@ -70,8 +78,8 @@ module PaySlipHelper
       @advance_repayment ||= params[:advance_repayment].to_f
     end
 
-    def other_deductables
-      @other_deductables ||= params[:other_deductables].to_f
+    def gym_repayment
+      @gym_repayment ||= params[:gym_repayment].to_f
     end
   end
 end

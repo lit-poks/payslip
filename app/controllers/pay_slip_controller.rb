@@ -17,7 +17,7 @@ class PaySlipController < ApplicationController
       gis: ,
       laptop_loan_repayment: ,
       advance_repayment: ,
-      other_deductables: ,
+      gym_repayment: ,
       net_pay:
     }
     session[:payslip] = @calculated_payslip
@@ -31,7 +31,7 @@ class PaySlipController < ApplicationController
 
   def filtered_params
     @filtered_params ||= params.permit(
-      [:base_pay, :pf_in_percentage, :laptop_loan_amount_per_month, :advance_repayment, :other_deductables]
+      [:base_pay, :pf_in_percentage, :laptop_loan_amount_per_month, :advance_repayment, :gym_repayment]
     )
   end
 

@@ -13,7 +13,7 @@
       <p class="payslip-detail">
         <span> Advance Reimbursement:</span> <%= @calculated_payslip['advance_repayment'].round(2) %></p>
       <p class="payslip-detail">
-        <span> Other Deductibles:</span> <%= @calculated_payslip['other_deductables'].round(2) %></p>
+        <span> Gym Reimbursement:</span> <%= @calculated_payslip['gym_repayment'].round(2) %></p>
       <p class="payslip-detail"><span> Net Pay:</span>&nbsp; <%= @calculated_payslip['net_pay'].round(2) %></p>
     </div>
     <button onclick="location.href='/';" class="submit-button back-button">Back</button>
